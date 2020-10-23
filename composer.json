@@ -1,0 +1,26 @@
+{
+    "name": "aswin/soap",
+    "description": "SOAP Web Service",
+    "authors": [
+        {
+            "name": "Aswin",
+            "email": "aswinvk28@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "DocConfig\\SOAP\\": "src/"
+        }
+    },
+    "require": {
+        "php": ">=5.3.3"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "4.0.0"
+    },
+    "config": {
+        "vendor-dir": "vendor",
+        "autoloader-suffix": "DocConfig_SOAP"
+    },
+    "minimum-stability": "dev"
+}

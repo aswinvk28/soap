@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+
+<xs:schema version="1.0"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           elementFormDefault="qualified">
+
+    <xsd:simpleType name="Digit">
+        <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="1" />
+        </xsd:restriction>
+    </xsd:simpleType>
+    <xsd:element name="Code">
+        <xsd:simpleType name="Code">
+            <xsd:restriction base="xsd:string">
+                <xsd:minLength value="10" />
+                <xsd:maxLength value="12" />
+                <xsd:pattern value="\d{10,12}\-\d" />
+            </xsd:restriction>
+        </xsd:simpleType>
+    </xsd:element>
+    <xsd:element name="Division" type="Digit" />
+    <xsd:element name="Group" type="Digit" />
+    <xsd:element name="Class" type="Digit" />
+    <xsd:element name="CPVResponse" type="CPVResponse">
+        <xsd:complexType name="CPVResponse">
+            <xsd:sequence>
+                <xsd:element name="Code" type="Code" minOccurs="0" />
+                <xsd:element name="Name" type="xsd:string" minOccurs="1" />
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    
+</xs:schema>

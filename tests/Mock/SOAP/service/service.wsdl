@@ -1,0 +1,63 @@
+<wsdl:definitions xmlns:wsdl="" xmlns:xs="" targetNamespace="" xmlns:tns="">
+    
+    <wsdl:types>
+        <xsd:import namespace="http://web-services" schemaLocation="service.xsd" />
+    </wsdl:types>
+    
+    <wsdl:message name="CPVCode">
+        <wsdl:part name="parameters" type="" element="tns:Code"/>
+    </wsdl:message>
+    
+    <wsdl:message name="CPVCodeFull">
+        <wsdl:part name="parameters" type="" element="tns:Limit"/>
+    </wsdl:message>
+    
+    <wsdl:message name="CPVDivision">
+        <wsdl:part name="parameters" type="Digit" element="tns:Division"/>
+    </wsdl:message>
+    
+    <wsdl:message name="CPVGroup">
+        <wsdl:part name="parameters" type="Digit" element="tns:Division"/>
+        <wsdl:part name="parameters" type="Digit" element="tns:Group"/>
+    </wsdl:message>
+    
+    <wsdl:message name="CPVClass">
+        <wsdl:part name="parameters" type="Digit" element="tns:Division"/>
+        <wsdl:part name="parameters" type="Digit" element="tns:Group"/>
+        <wsdl:part name="parameters" type="Digit" element="tns:Class"/>
+    </wsdl:message>
+    
+    <wsdl:message name="CPVResponse">
+        <wsdl:part name="parameters" type="" element="tns:CPVResponse"/>
+    </wsdl:message>
+    
+    <wsdl:portType name="CPVInfo">
+        <wsdl:operation name="getCPVforCPVCode">
+            <wsdl:input message="CPVCodeFull" />
+            <wsdl:output message="CPVResponse" />
+        </wsdl:operation>
+    </wsdl:portType>
+    
+    <wsdl:portType name="CPVQuery">
+        <wsdl:operation name="getAllCPVforDivision">
+            <wsdl:input message="CPVDivision" />
+            <wsdl:output message="CPVResponse" />
+        </wsdl:operation>
+        
+        <wsdl:operation name="getAllCPVforGroup">
+            <wsdl:input message="CPVGroup" />
+            <wsdl:output message="CPVResponse" />
+        </wsdl:operation>
+        
+        <wsdl:operation name="getAllCPVforClass">
+            <wsdl:input message="CPVClass" />
+            <wsdl:output message="CPVResponse" />
+        </wsdl:operation>
+        
+        <wsdl:operation name="getAllCPVforCategory">
+            <wsdl:input message="CPVCategory" />
+            <wsdl:output message="CPVResponse" />
+        </wsdl:operation>
+    </wsdl:portType>
+    
+</wsdl:definitions>
